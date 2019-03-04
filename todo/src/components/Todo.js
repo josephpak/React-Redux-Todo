@@ -7,12 +7,18 @@ const TodoWrapper = styled.div`
     display: flex;
     justify-content: center;
     padding: 15px 0;
+
+    ${props => props.completed && `
+        text-decoration: line-through
+    `}
+
 `
 
 const Todo = props => {
   return (
     <TodoWrapper
-    onClick={() => props.toggleTodo(props.task.uid)}
+    completed={props.completed}
+    onClick={() => props.toggleTodo(props.uid)}
     >
     {props.task}
     </TodoWrapper>

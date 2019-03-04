@@ -17,6 +17,8 @@ const TodoList = props => {
           <Todo 
             key={index}
             task={todo.task}
+            uid={todo.uid}
+            completed={todo.completed}
             toggleTodo={props.toggleTodo}
           />
           )
