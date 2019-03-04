@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './actions';
+import styled from 'styled-components';
 
 import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
 import './App.css';
+
+const AppWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+`
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 25px 0;
+`
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <h1>My TodoList</h1>
+      <AppWrapper>
+          <HeaderWrapper>My TodoList</HeaderWrapper>
           <TodoList
             todos={this.props.todos}
           />
-      </div>
+          <TodoForm
+          addTodo={this.props.addTodo}
+          />
+      </AppWrapper>
     );
   }
 }

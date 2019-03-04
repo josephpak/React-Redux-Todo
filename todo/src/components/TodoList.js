@@ -3,7 +3,9 @@ import Todo from './Todo'
 import styled from 'styled-components';
 
 const ListWrapper = styled.div`
-  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `
 
 const TodoList = props => {
