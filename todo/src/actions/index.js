@@ -5,7 +5,6 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
 
 export const addTodo = task => {
-    console.log(task);
     const newTask = {
         task: task,
         uid: uuidv4(),
@@ -17,10 +16,10 @@ export const addTodo = task => {
     }
 }
 
-export const toggleTodo = id => {
-    console.log(id)
+export const toggleTodo = uid => {
+    console.log("Toggling")
     return {
         type: TOGGLE_TODO,
-        payload: id
+        payload: uid
     }
 }

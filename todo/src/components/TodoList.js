@@ -12,10 +12,12 @@ const ListWrapper = styled.div`
 const TodoList = props => {
   return (
     <ListWrapper>
-      {props.todos.map(todo => {
+      {props.todos.map((todo, index) => {
           return (
           <Todo 
+            key={index}
             task={todo.task}
+            toggleTodo={props.toggleTodo}
           />
           )
       })}

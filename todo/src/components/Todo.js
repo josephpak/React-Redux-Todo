@@ -7,11 +7,13 @@ const TodoWrapper = styled.div`
     display: flex;
     justify-content: center;
     padding: 15px 0;
-`    
+`
 
 const Todo = props => {
   return (
-    <TodoWrapper>
+    <TodoWrapper
+    onClick={() => props.toggleTodo(props.task.uid)}
+    >
     {props.task}
     </TodoWrapper>
   )

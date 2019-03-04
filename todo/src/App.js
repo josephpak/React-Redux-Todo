@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from './actions';
+import { addTodo, toggleTodo } from './actions';
 import styled from 'styled-components';
 
 import TodoList from './components/TodoList'
@@ -29,9 +29,10 @@ class App extends Component {
           <HeaderWrapper>My TodoList</HeaderWrapper>
           <TodoList
             todos={this.props.todos}
+            toggleTodo={this.props.toggleTodo}
           />
           <TodoForm
-          addTodo={this.props.addTodo}
+            addTodo={this.props.addTodo}
           />
       </AppWrapper>
     );
@@ -45,4 +46,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
