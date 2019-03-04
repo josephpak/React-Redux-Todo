@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const ListWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `
 
 const TodoList = props => {

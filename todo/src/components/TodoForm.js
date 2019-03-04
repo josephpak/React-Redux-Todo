@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleAddTask = e => {
+  addTodo = e => {
     e.preventDefault();
     this.setState({task: ''})
     this.props.addTodo(this.state.task)
@@ -28,7 +28,7 @@ class TodoForm extends React.Component {
   render() {
     return (
         <FormWrapper
-        onSubmit={this.handleAddTask}
+        onSubmit={this.addTodo}
         >
           <button>Add Todo</button>
           <input
