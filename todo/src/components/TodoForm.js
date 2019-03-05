@@ -52,7 +52,7 @@ class TodoForm extends React.Component {
         onSubmit={this.addTodo}
         >
           <button>Add Todo</button>
-          <RagePower>
+          {this.props.rage ? <RagePower>
           <input
             text="text"
             value={this.state.task}
@@ -61,6 +61,15 @@ class TodoForm extends React.Component {
             placeholder="...Todo"
           ></input>
           </RagePower>
+          : <input
+            text="text"
+            value={this.state.task}
+            onChange={this.handleTaskForm}
+            name="task"
+            placeholder="...Todo"
+            ></input>       
+          }
+          
         </FormWrapper>
       )
   }

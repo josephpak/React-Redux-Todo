@@ -4,7 +4,7 @@ export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
-export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
+export const TOGGLE_RAGE = "TOGGLE_RAGE"
 
 export const addTodo = task => {
     const newTask = {
@@ -36,5 +36,11 @@ export const toggleTodo = uid => {
 export const clearCompleted = () => {
     return {
         type: CLEAR_COMPLETED,
+    }
+}
+
+export const toggleRage = () => {
+    return {
+        type: TOGGLE_RAGE,
     }
 }

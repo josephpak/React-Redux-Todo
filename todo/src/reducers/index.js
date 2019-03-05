@@ -1,8 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED } from "../actions";
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED, TOGGLE_RAGE } from "../actions";
 import { Z_FILTERED } from "zlib";
 
 const initialState = {
-    todos: [{task: "Eat", completed: false}]
+    todos: [{task: "Eat", completed: false}],
+    rage: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -41,6 +42,12 @@ export const reducer = (state = initialState, action) => {
                     return todo
                 })
             }
+
+        case TOGGLE_RAGE:
+            return {
+                ...state,
+                rage: !state.rage
+            }    
 
 
         default:

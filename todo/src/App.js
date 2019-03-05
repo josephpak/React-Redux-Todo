@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo, deleteTodo, clearCompleted } from './actions';
+import { addTodo, toggleTodo, deleteTodo, clearCompleted, toggleRage } from './actions';
 import styled from 'styled-components';
 
 import TodoList from './components/TodoList'
@@ -45,6 +45,11 @@ const PanelWrapper = styled.div`
     border-color: red;
     color: red;
   }
+
+  .rage {
+    border-color: purple;
+    color: purple;
+  }
 `
 
 class App extends Component {
@@ -56,11 +61,18 @@ class App extends Component {
           <PanelWrapper>
             <TodoForm
               addTodo={this.props.addTodo}
+              rage={this.props.rage}
             />
-            <button
-            className="clear"
-            onClick={this.props.clearCompleted}
-            >Clear Completed</button>
+            <div>
+              <button
+              className="clear"
+              onClick={this.props.clearCompleted}
+              >Clear Completed</button>
+              <button
+              className="rage"
+              onClick={this.props.toggleRage}
+              >Shall we Rage?</button>
+            </div>
           </PanelWrapper>
           
           <TodoList
@@ -77,8 +89,9 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    todos: state.todos
+    todos: state.todos,
+    rage: state.rage
   };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo, clearCompleted })(App);
+export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo, clearCompleted, toggleRage })(App);
