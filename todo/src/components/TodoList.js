@@ -7,6 +7,9 @@ const ListWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 500px;
+  overflow: scroll;
+  padding-left: 15px;
 `
 
 const TodoList = props => {

@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, CLEAR_COMPLETED } from "../actions";
 import { Z_FILTERED } from "zlib";
 
 const initialState = {
@@ -19,7 +19,13 @@ export const reducer = (state = initialState, action) => {
             todos: state.todos.filter(todo => todo.uid !== action.payload)
             
             
-        }        
+        }
+        
+        case CLEAR_COMPLETED:
+        return {
+            ...state,
+            todos: state.todos.filter(todo => !todo.completed)
+        }
 
         case TOGGLE_TODO:
             return {

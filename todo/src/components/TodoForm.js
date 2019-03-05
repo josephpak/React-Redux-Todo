@@ -4,6 +4,23 @@ import styled from 'styled-components';
 const FormWrapper = styled.form`
     display: flex;
     justify-content: center;
+
+    button {
+        color: green;
+        border-color: green;
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px dashed black;
+        padding-left: 10px;
+        width: 300px;
+        font-family: Lato;
+
+        &:focus {
+            outline: none;
+        }
+    }
 `
 
 class TodoForm extends React.Component {
@@ -28,6 +45,7 @@ class TodoForm extends React.Component {
   render() {
     return (
         <FormWrapper
+        autoComplete="off"
         onSubmit={this.addTodo}
         >
           <button>Add Todo</button>
