@@ -20,6 +20,7 @@ const TodoList = props => {
             uid={todo.uid}
             completed={todo.completed}
             toggleTodo={props.toggleTodo}
+            deleteTodo={props.deleteTodo}
           />
           )
       })}

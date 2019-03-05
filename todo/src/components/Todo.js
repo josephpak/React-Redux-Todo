@@ -5,7 +5,7 @@ const TodoWrapper = styled.div`
     border: 1px dashed black;
     width: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 15px 0;
 
     ${props => props.completed && `
@@ -15,13 +15,19 @@ const TodoWrapper = styled.div`
 `
 
 const Todo = props => {
+
   return (
-    <TodoWrapper
-    completed={props.completed}
-    onClick={() => props.toggleTodo(props.uid)}
-    >
-    {props.task}
-    </TodoWrapper>
+    <>
+        <TodoWrapper
+        completed={props.completed}
+        onClick={() => {props.toggleTodo(props.uid)}}
+        >
+        {props.task}
+        <button
+        onClick={() => {props.deleteTodo(props.uid)}}
+        >x</button>
+        </TodoWrapper>     
+    </>
   )
 }
 

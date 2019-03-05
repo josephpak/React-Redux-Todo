@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from './actions';
+import { addTodo, toggleTodo, deleteTodo } from './actions';
 import styled from 'styled-components';
 
 import TodoList from './components/TodoList'
@@ -24,12 +24,14 @@ const HeaderWrapper = styled.div`
 
 class App extends Component {
   render() {
+    console.log("Rendering")
     return (
       <AppWrapper>
           <HeaderWrapper>My TodoList</HeaderWrapper>
           <TodoList
             todos={this.props.todos}
             toggleTodo={this.props.toggleTodo}
+            deleteTodo={this.props.deleteTodo}
           />
           <TodoForm
             addTodo={this.props.addTodo}
@@ -46,4 +48,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
+export default connect(mapStateToProps, { addTodo, toggleTodo, deleteTodo })(App);

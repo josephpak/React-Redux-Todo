@@ -1,4 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "../actions";
+import { Z_FILTERED } from "zlib";
 
 const initialState = {
     todos: [{task: "Eat", completed: false}]
@@ -9,12 +10,22 @@ export const reducer = (state = initialState, action) => {
         case ADD_TODO:  
             return {
                 ...state,
-                todos: [...state.todos, action.payload]
+                todos: [...state.todos, action.payload] 
             }
+        
+        case DELETE_TODO:
+        return {
+            ...state,
+            todos: state.todos.filter(todo => todo.uid !== action.payload)
+            
+            
+        }        
+
         case TOGGLE_TODO:
             return {
                 ...state,
-                todos: state.todos.map((todo) => {
+                todos: state.todos.map(todo => {
+                    console.log(`Toggled`)
                     if(todo.uid === action.payload) {
                         return {
                             ...todo,
@@ -23,7 +34,8 @@ export const reducer = (state = initialState, action) => {
                     }
                     return todo
                 })
-            }    
+            }
+
 
         default:
             return state;    

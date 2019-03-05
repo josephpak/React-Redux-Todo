@@ -2,6 +2,7 @@ import uuidv4 from 'uuid';
 
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
+export const DELETE_TODO = "DELETE_TODO";
 export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
 
 export const addTodo = task => {
@@ -16,8 +17,15 @@ export const addTodo = task => {
     }
 }
 
+export const deleteTodo = uid => {
+    console.log(uid)
+    return {
+        type: DELETE_TODO,
+        payload: uid
+    }
+}
+
 export const toggleTodo = uid => {
-    console.log("Toggling")
     return {
         type: TOGGLE_TODO,
         payload: uid
