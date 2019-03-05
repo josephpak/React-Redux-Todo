@@ -3,7 +3,7 @@ import Todo from './Todo'
 import styled from 'styled-components';
 
 const ListWrapper = styled.div`
-  width: 100%;
+  width: 630px;
   display: flex;
   align-items: center;
   flex-direction: column;

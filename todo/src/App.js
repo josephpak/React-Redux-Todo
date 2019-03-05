@@ -30,6 +30,7 @@ const PanelWrapper = styled.div`
   height: 100px;
   justify-content: space-between;
   padding: 10px 0;
+  border-radius: .5rem;
 
   button {
     width: 150px;

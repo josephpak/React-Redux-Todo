@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import RagePower from 'rage-power';
 
 const FormWrapper = styled.form`
     display: flex;
@@ -12,10 +13,12 @@ const FormWrapper = styled.form`
 
     input {
         border: none;
-        border-bottom: 1px dashed black;
-        padding-left: 10px;
+        border-bottom: 1px solid black;
+        padding: 10px 0;
+        padding-left: 20px;
         width: 300px;
         font-family: Lato;
+        font-size: 1.2rem;
 
         &:focus {
             outline: none;
@@ -49,6 +52,7 @@ class TodoForm extends React.Component {
         onSubmit={this.addTodo}
         >
           <button>Add Todo</button>
+          <RagePower>
           <input
             text="text"
             value={this.state.task}
@@ -56,6 +60,7 @@ class TodoForm extends React.Component {
             name="task"
             placeholder="...Todo"
           ></input>
+          </RagePower>
         </FormWrapper>
       )
   }

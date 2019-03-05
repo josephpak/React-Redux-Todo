@@ -1,4 +1,5 @@
-import React from 'react';import { reducer } from '../reducers';
+import React from 'react';import { NONAME } from 'dns';
+import { reducer } from '../reducers';
 
 import styled from 'styled-components';
 
@@ -9,16 +10,22 @@ const TodoWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 15px 25px;
-    height: 50px
+    height: 50px;
+    min-height: 50px;
     align-items: center;
 
     p, button {
         font-family: Lato;
         font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    p {
+        width: 100%;
     }
 
     button {
-        width: 100px;
+        width: 120px;
         padding: 8px 15px;
         background: white;
         border-radius: .7rem;
@@ -26,11 +33,22 @@ const TodoWrapper = styled.div`
         font-family: Lato;
         border-color: red;
         color: red;
+        text-decoration: none;
+
+        &:active {
+            outline: none;
+        }
     }
 
     ${props => props.completed && `
-        text-decoration: line-through
+        background-color: lightgray
+
+        p {
+            text-decoration: line-through
+        }    
     `}
+
+
 
 `
 
@@ -40,13 +58,15 @@ const Todo = props => {
     <>
         <TodoWrapper
         completed={props.completed}
-        onClick={() => {props.toggleTodo(props.uid)}}
         >
-        <p>{props.task}</p>
+        <p
+        onClick={() => {props.toggleTodo(props.uid)}}
+        >{props.task}</p>
         <button
         onClick={() => {props.deleteTodo(props.uid)}}
         >Delete Task</button>
         </TodoWrapper>     
+        
     </>
   )
 }
