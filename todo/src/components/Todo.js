@@ -35,8 +35,8 @@ const TodoWrapper = styled.div`
         color: red;
         text-decoration: none;
 
-        &:active {
-            outline: none;
+        &:focus {
+            outline: 0
         }
     }
 
@@ -54,6 +54,14 @@ const TodoWrapper = styled.div`
 
 const Todo = props => {
 
+  const handleDelete = e => {
+    e.preventDefault();
+    const check = window.confirm("Are you sure you want to delete this task?")
+    if (check) {
+        props.deleteTodo(props.uid)
+    }
+  }  
+
   return (
     <>
         <TodoWrapper
@@ -63,7 +71,7 @@ const Todo = props => {
         onClick={() => {props.toggleTodo(props.uid)}}
         >{props.task}</p>
         <button
-        onClick={() => {props.deleteTodo(props.uid)}}
+        onClick={handleDelete}
         >Delete Task</button>
         </TodoWrapper>     
         

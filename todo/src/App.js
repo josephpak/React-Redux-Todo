@@ -39,6 +39,10 @@ const PanelWrapper = styled.div`
     border-radius: .7rem;
     cursor: pointer;
     font-family: Lato;
+
+    &:focus {
+      outline: 0;
+    }
   }
 
   .clear {
@@ -50,15 +54,33 @@ const PanelWrapper = styled.div`
     border-color: purple;
     color: purple;
   }
+
+  ${props => props.rage && `
+      .rage {
+        background-color: purple;
+        color: white;
+      }
+    `}
 `
 
 class App extends Component {
+
+  handleClearComplete = e => {
+    e.preventDefault();
+    const check = window.confirm("Are you sure you want to delete this task?")
+    if (check) {
+      this.props.clearCompleted()
+    }
+  }
+
   render() {
     console.log("Rendering")
     return (
       <AppWrapper>
           <HeaderWrapper>My TodoList</HeaderWrapper>
-          <PanelWrapper>
+          <PanelWrapper
+          rage={this.props.rage}
+          >
             <TodoForm
               addTodo={this.props.addTodo}
               rage={this.props.rage}
@@ -66,10 +88,11 @@ class App extends Component {
             <div>
               <button
               className="clear"
-              onClick={this.props.clearCompleted}
+              onClick={this.handleClearComplete}
               >Clear Completed</button>
               <button
               className="rage"
+              rage={this.props.rage}
               onClick={this.props.toggleRage}
               >Shall we Rage?</button>
             </div>
